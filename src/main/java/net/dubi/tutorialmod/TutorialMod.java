@@ -1,5 +1,6 @@
 package net.dubi.tutorialmod;
 
+import net.dubi.tutorialmod.item.ModItems;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -22,13 +23,15 @@ import java.util.stream.Collectors;
 @Mod(TutorialMod.MOD_ID)
 public class TutorialMod {
     public static final String MOD_ID = "tutorialmod";
-// Hello
+
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
     public TutorialMod() {
 
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModItems.register(eventBus);
 
         eventBus.addListener(this::setup);
 
